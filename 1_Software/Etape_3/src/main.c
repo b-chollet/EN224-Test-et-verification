@@ -24,17 +24,35 @@ int PGCD(int A, int B)
 	}
 	return A;
 }
+int PGCD_compare(int A, int B)
+{
+	int C = 0;
+	if (A == 0 && B == 0) return 0;
+	else if (B == 0) return A;
+	else if (A == 0) return B;
+
+	while(B !=0){
+		C = A;
+		A = B;
+		B = C % B;
+
+	}
+	return A;
+}
 
 int main (int argc, char * argv []){
 	printf("(II) Starting PGCD program\n");
-	int A = 0;
-	int B = 0;
+	int A;
+	int B;
 	srand( time( NULL ) );
 
-	for (int i = 0; i <200000; ++i) {
+	for (int i = 0; i <20; ++i) {
 		A = RandA();
 		B = RandB();
-		printf("(%d) : PGCD(%d;%d) = %d\n",i,A,B,PGCD(A,B));
+		//A=10;
+		//B = 20;
+		printf("(%d) : PGCD(%d;%d) = %d -- PGCD_compare(%d;%d) = %d\n",
+														i,A,B,PGCD(A,B),A,B,PGCD_compare(A,B));
 	}
 	printf("(II) End of PGCD program\n");
   return 0;
