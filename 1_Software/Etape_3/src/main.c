@@ -25,7 +25,6 @@ int PGCD(int A, int B)
 	return A;
 }
 
-//On tombe sur une valeur nulle, donc le programme plante
 int main (int argc, char * argv []){
 	printf("(II) Starting PGCD program\n");
 	int A = 0;
