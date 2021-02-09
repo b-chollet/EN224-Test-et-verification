@@ -1,16 +1,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "math.h"
-#include "time.h"
-
-int RandA()
-{
-	return rand()%65536;
-}
-int RandB()
-{
-	return rand()%65536;
-}
+#include <assert.h>
 
 int PGCD(int A, int B)
 {
@@ -26,19 +17,21 @@ int PGCD(int A, int B)
 	return A;
 }
 
-
-//On tombe sur une valeur nulle, donc le programme plante
 int main (int argc, char * argv []){
 	printf("(II) Starting PGCD program\n");
-	int A = 0;
-	int B = 0;
-	srand( time( NULL ) );
 
-	for (int i = 0; i <200000; ++i) {
-		A = RandA();
-		B = RandB();
-		printf("(%d) : PGCD(%d;%d) = %d\n",i,A,B,PGCD(A,B));
-	}
+/*
+	printf("PGCD = %d",PGCD(12,52));
+	printf("PGCD = %d",PGCD(120,22));
+	printf("PGCD = %d",PGCD(90,41));
+	printf("PGCD = %d",PGCD(31,907));
+	printf("PGCD = %d",PGCD(531,578));
+	printf("PGCD = %d",PGCD(15,42));
+	printf("PGCD = %d",PGCD(1,523));
+*/
+	assert(PGCD(12,52) == 4);
+	assert(PGCD(12,52) == 5);
+
 	printf("(II) End of PGCD program\n");
   return 0;
 }
